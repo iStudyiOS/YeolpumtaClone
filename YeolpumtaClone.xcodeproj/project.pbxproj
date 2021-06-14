@@ -3,27 +3,37 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2296F3E462DE79581FEF0FD7 /* Pods_YeolpumtaClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F240E6EDDA8440264E1F9D6E /* Pods_YeolpumtaClone.framework */; };
 		6B3A20B5267606B800F3D04C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3A20B4267606B800F3D04C /* AppDelegate.swift */; };
 		6B3A20B7267606B800F3D04C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3A20B6267606B800F3D04C /* SceneDelegate.swift */; };
-		6B3A20B9267606B800F3D04C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3A20B8267606B800F3D04C /* ViewController.swift */; };
-		6B3A20BC267606B800F3D04C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B3A20BA267606B800F3D04C /* Main.storyboard */; };
 		6B3A20BE267606BA00F3D04C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B3A20BD267606BA00F3D04C /* Assets.xcassets */; };
 		6B3A20C1267606BA00F3D04C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B3A20BF267606BA00F3D04C /* LaunchScreen.storyboard */; };
+		6B3A20CF2676077900F3D04C /* InsightsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3A20CE2676077900F3D04C /* InsightsViewController.swift */; };
+		6B3A20D12676078900F3D04C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3A20D02676078900F3D04C /* HomeViewController.swift */; };
+		6B3A20D32676079000F3D04C /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3A20D22676079000F3D04C /* RankingViewController.swift */; };
+		6B3A20D5267607A900F3D04C /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3A20D4267607A900F3D04C /* MainTabViewController.swift */; };
+		6B3A20DC267611FA00F3D04C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3A20DB267611FA00F3D04C /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		03174D305EDA1C3BA6C26926 /* Pods-YeolpumtaClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YeolpumtaClone.release.xcconfig"; path = "Target Support Files/Pods-YeolpumtaClone/Pods-YeolpumtaClone.release.xcconfig"; sourceTree = "<group>"; };
+		15BB2CD8CEE5BA889310A14D /* Pods-YeolpumtaClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YeolpumtaClone.debug.xcconfig"; path = "Target Support Files/Pods-YeolpumtaClone/Pods-YeolpumtaClone.debug.xcconfig"; sourceTree = "<group>"; };
 		6B3A20B1267606B800F3D04C /* YeolpumtaClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YeolpumtaClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B3A20B4267606B800F3D04C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6B3A20B6267606B800F3D04C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		6B3A20B8267606B800F3D04C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		6B3A20BB267606B800F3D04C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6B3A20BD267606BA00F3D04C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B3A20C0267606BA00F3D04C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6B3A20C2267606BA00F3D04C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6B3A20CE2676077900F3D04C /* InsightsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsViewController.swift; sourceTree = "<group>"; };
+		6B3A20D02676078900F3D04C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		6B3A20D22676079000F3D04C /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
+		6B3A20D4267607A900F3D04C /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
+		6B3A20DB267611FA00F3D04C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F240E6EDDA8440264E1F9D6E /* Pods_YeolpumtaClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YeolpumtaClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +41,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2296F3E462DE79581FEF0FD7 /* Pods_YeolpumtaClone.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		170E71EA68B7D5CF51DA70E2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				15BB2CD8CEE5BA889310A14D /* Pods-YeolpumtaClone.debug.xcconfig */,
+				03174D305EDA1C3BA6C26926 /* Pods-YeolpumtaClone.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		6B3A20A8267606B800F3D04C = {
 			isa = PBXGroup;
 			children = (
 				6B3A20B3267606B800F3D04C /* YeolpumtaClone */,
 				6B3A20B2267606B800F3D04C /* Products */,
+				170E71EA68B7D5CF51DA70E2 /* Pods */,
+				E280C946E6342DDEB592DFA6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +78,74 @@
 		6B3A20B3267606B800F3D04C /* YeolpumtaClone */ = {
 			isa = PBXGroup;
 			children = (
-				6B3A20B4267606B800F3D04C /* AppDelegate.swift */,
-				6B3A20B6267606B800F3D04C /* SceneDelegate.swift */,
-				6B3A20B8267606B800F3D04C /* ViewController.swift */,
-				6B3A20BA267606B800F3D04C /* Main.storyboard */,
-				6B3A20BD267606BA00F3D04C /* Assets.xcassets */,
-				6B3A20BF267606BA00F3D04C /* LaunchScreen.storyboard */,
+				6B3A20DA267611E700F3D04C /* Constant */,
+				6B3A20CB2676073C00F3D04C /* Model */,
+				6B3A20CA2676073A00F3D04C /* View */,
+				6B3A20C92676073800F3D04C /* Controller */,
+				6B3A20CD2676074800F3D04C /* Service */,
+				6B3A20C82676072B00F3D04C /* Resource */,
 				6B3A20C2267606BA00F3D04C /* Info.plist */,
 			);
 			path = YeolpumtaClone;
+			sourceTree = "<group>";
+		};
+		6B3A20C82676072B00F3D04C /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				6B3A20B4267606B800F3D04C /* AppDelegate.swift */,
+				6B3A20B6267606B800F3D04C /* SceneDelegate.swift */,
+				6B3A20BD267606BA00F3D04C /* Assets.xcassets */,
+				6B3A20BF267606BA00F3D04C /* LaunchScreen.storyboard */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		6B3A20C92676073800F3D04C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6B3A20D4267607A900F3D04C /* MainTabViewController.swift */,
+				6B3A20D02676078900F3D04C /* HomeViewController.swift */,
+				6B3A20CE2676077900F3D04C /* InsightsViewController.swift */,
+				6B3A20D22676079000F3D04C /* RankingViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6B3A20CA2676073A00F3D04C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6B3A20CB2676073C00F3D04C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6B3A20CD2676074800F3D04C /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		6B3A20DA267611E700F3D04C /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				6B3A20DB267611FA00F3D04C /* Constants.swift */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		E280C946E6342DDEB592DFA6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F240E6EDDA8440264E1F9D6E /* Pods_YeolpumtaClone.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +155,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6B3A20C5267606BA00F3D04C /* Build configuration list for PBXNativeTarget "YeolpumtaClone" */;
 			buildPhases = (
+				89C7F045168ECBF0B0F4AB15 /* [CP] Check Pods Manifest.lock */,
 				6B3A20AD267606B800F3D04C /* Sources */,
 				6B3A20AE267606B800F3D04C /* Frameworks */,
 				6B3A20AF267606B800F3D04C /* Resources */,
+				AE103FAA83B0EE3587D457E0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,34 +209,71 @@
 			files = (
 				6B3A20C1267606BA00F3D04C /* LaunchScreen.storyboard in Resources */,
 				6B3A20BE267606BA00F3D04C /* Assets.xcassets in Resources */,
-				6B3A20BC267606B800F3D04C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		89C7F045168ECBF0B0F4AB15 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YeolpumtaClone-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AE103FAA83B0EE3587D457E0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YeolpumtaClone/Pods-YeolpumtaClone-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-YeolpumtaClone/Pods-YeolpumtaClone-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YeolpumtaClone/Pods-YeolpumtaClone-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6B3A20AD267606B800F3D04C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6B3A20B9267606B800F3D04C /* ViewController.swift in Sources */,
+				6B3A20D32676079000F3D04C /* RankingViewController.swift in Sources */,
 				6B3A20B5267606B800F3D04C /* AppDelegate.swift in Sources */,
 				6B3A20B7267606B800F3D04C /* SceneDelegate.swift in Sources */,
+				6B3A20CF2676077900F3D04C /* InsightsViewController.swift in Sources */,
+				6B3A20D12676078900F3D04C /* HomeViewController.swift in Sources */,
+				6B3A20D5267607A900F3D04C /* MainTabViewController.swift in Sources */,
+				6B3A20DC267611FA00F3D04C /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		6B3A20BA267606B800F3D04C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6B3A20BB267606B800F3D04C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		6B3A20BF267606BA00F3D04C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -283,6 +403,7 @@
 		};
 		6B3A20C6267606BA00F3D04C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15BB2CD8CEE5BA889310A14D /* Pods-YeolpumtaClone.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -301,6 +422,7 @@
 		};
 		6B3A20C7267606BA00F3D04C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 03174D305EDA1C3BA6C26926 /* Pods-YeolpumtaClone.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
