@@ -17,6 +17,9 @@
 		6B3A20D32676079000F3D04C /* RankingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3A20D22676079000F3D04C /* RankingViewController.swift */; };
 		6B3A20D5267607A900F3D04C /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3A20D4267607A900F3D04C /* MainTabViewController.swift */; };
 		6B3A20DC267611FA00F3D04C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3A20DB267611FA00F3D04C /* Constants.swift */; };
+		BD6A4526267B1EF9001F4808 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6A4525267B1EF9001F4808 /* FirstViewController.swift */; };
+		BD6A4529267B387E001F4808 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6A4528267B387E001F4808 /* LoginViewController.swift */; };
+		BD6A452C267B389B001F4808 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6A452B267B389B001F4808 /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +36,9 @@
 		6B3A20D22676079000F3D04C /* RankingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingViewController.swift; sourceTree = "<group>"; };
 		6B3A20D4267607A900F3D04C /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		6B3A20DB267611FA00F3D04C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BD6A4525267B1EF9001F4808 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		BD6A4528267B387E001F4808 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		BD6A452B267B389B001F4808 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		F240E6EDDA8440264E1F9D6E /* Pods_YeolpumtaClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YeolpumtaClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -103,6 +109,7 @@
 		6B3A20C92676073800F3D04C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				BD6A4524267B1E05001F4808 /* Login */,
 				6B3A20D4267607A900F3D04C /* MainTabViewController.swift */,
 				6B3A20D02676078900F3D04C /* HomeViewController.swift */,
 				6B3A20CE2676077900F3D04C /* InsightsViewController.swift */,
@@ -138,6 +145,16 @@
 				6B3A20DB267611FA00F3D04C /* Constants.swift */,
 			);
 			path = Constant;
+			sourceTree = "<group>";
+		};
+		BD6A4524267B1E05001F4808 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				BD6A4525267B1EF9001F4808 /* FirstViewController.swift */,
+				BD6A4528267B387E001F4808 /* LoginViewController.swift */,
+				BD6A452B267B389B001F4808 /* RegisterViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		E280C946E6342DDEB592DFA6 /* Frameworks */ = {
@@ -261,9 +278,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD6A4529267B387E001F4808 /* LoginViewController.swift in Sources */,
+				BD6A452C267B389B001F4808 /* RegisterViewController.swift in Sources */,
 				6B3A20D32676079000F3D04C /* RankingViewController.swift in Sources */,
 				6B3A20B5267606B800F3D04C /* AppDelegate.swift in Sources */,
 				6B3A20B7267606B800F3D04C /* SceneDelegate.swift in Sources */,
+				BD6A4526267B1EF9001F4808 /* FirstViewController.swift in Sources */,
 				6B3A20CF2676077900F3D04C /* InsightsViewController.swift in Sources */,
 				6B3A20D12676078900F3D04C /* HomeViewController.swift in Sources */,
 				6B3A20D5267607A900F3D04C /* MainTabViewController.swift in Sources */,
@@ -408,7 +428,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T77G9YWYU5;
 				INFOPLIST_FILE = YeolpumtaClone/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -427,7 +449,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T77G9YWYU5;
 				INFOPLIST_FILE = YeolpumtaClone/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

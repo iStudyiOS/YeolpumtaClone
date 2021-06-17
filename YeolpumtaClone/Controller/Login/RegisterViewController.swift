@@ -1,0 +1,19 @@
+//
+//  RegisterViewController.swift
+//  YeolpumtaClone
+//
+//  Created by minii on 2021/06/17.
+//
+
+import UIKit
+
+class RegisterViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        self.view.backgroundColor = .blue
+    }
+    
+
+}
