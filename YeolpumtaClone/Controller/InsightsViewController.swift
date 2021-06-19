@@ -16,7 +16,7 @@ class InsightsViewController: UIViewController {
         let table = UITableView()
         table.register(CalendarCell.self, forCellReuseIdentifier: CalendarCell.identifier)
         table.register(StatisticsCell.self, forCellReuseIdentifier: StatisticsCell.identifier)
-        table.separatorStyle = .none
+//        table.separatorStyle = .none
         return table
     }()
     
@@ -28,8 +28,7 @@ class InsightsViewController: UIViewController {
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
-        view.backgroundColor = .systemGray5
-    
+        view.backgroundColor = .yellow
     }
 
     override func viewDidLayoutSubviews() {
@@ -46,23 +45,23 @@ extension InsightsViewController: UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if indexPath.row == 0 {
+        switch indexPath.row {
+        case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: CalendarCell.identifier, for: indexPath) as! CalendarCell
             return cell
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: StatisticsCell.identifier, for: indexPath) as! StatisticsCell
+            return cell
         }
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: StatisticsCell.identifier, for: indexPath) as! StatisticsCell
-        return cell
+
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        if indexPath.row == 0 {
-            return CGFloat(300)
-        } else {
-            return CGFloat(500)
-//                CGFloat(StatisticsCell.AutoresizingMask.flexibleHeight.rawValue)
+        switch indexPath.row {
+        case 0:
+            return 300
+        default:
+            return 500
         }
     }
 }

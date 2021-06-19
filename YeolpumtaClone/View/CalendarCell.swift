@@ -24,14 +24,14 @@ class CalendarCell: UITableViewCell {
         selectionStyle = .none
         backgroundColor = .none
         
-        calendar = FSCalendar(frame: CGRect(x: 0.0, y: 0.0, width: contentView.frame.size.width, height: 300))
+        calendar = FSCalendar()
         calendar.backgroundColor = .none
-        
+    
         contentView.addSubview(calendar)
         calendar.snp.makeConstraints {
             $0.width.equalTo(contentView)
             $0.height.equalTo(300)
-            $0.top.equalTo(contentView.safeAreaLayoutGuide)
+            $0.top.equalTo(contentView)
         }
     }
     
