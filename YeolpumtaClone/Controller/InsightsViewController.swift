@@ -8,15 +8,15 @@
 import UIKit
 import SnapKit
 
-
 class InsightsViewController: UIViewController {
     // MARK: - Properties
     
     private let tableView: UITableView = {
         let table = UITableView()
         table.register(CalendarCell.self, forCellReuseIdentifier: CalendarCell.identifier)
+        table.register(MenuBarCell.self, forCellReuseIdentifier: MenuBarCell.identifier)
         table.register(StatisticsCell.self, forCellReuseIdentifier: StatisticsCell.identifier)
-//        table.separatorStyle = .none
+        table.separatorStyle = .none
         return table
     }()
     
@@ -41,13 +41,16 @@ class InsightsViewController: UIViewController {
 
 extension InsightsViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        2
+        3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: CalendarCell.identifier, for: indexPath) as! CalendarCell
+            return cell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: MenuBarCell.identifier, for: indexPath) as! MenuBarCell
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: StatisticsCell.identifier, for: indexPath) as! StatisticsCell
@@ -59,10 +62,11 @@ extension InsightsViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:
-            return 300
+            return 260 + 40 + 16
+        case 1:
+            return 10 + 40 + 2
         default:
             return 500
         }
     }
 }
-
