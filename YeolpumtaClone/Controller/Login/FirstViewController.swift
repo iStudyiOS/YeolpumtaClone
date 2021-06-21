@@ -25,7 +25,7 @@ class FirstViewController: UIViewController {
     }()
     
     let registerButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.setTitle("새로 시작하기", for: .normal)
         button.setTitleColor(UIColor.systemOrange, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
@@ -35,7 +35,7 @@ class FirstViewController: UIViewController {
     }()
     
     let loginButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.setTitle("로그인", for: .normal)
         button.setTitleColor(UIColor.systemOrange, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
