@@ -7,5 +7,6 @@ target 'YeolpumtaClone' do
 
   # Pods for YeolpumtaClone
   pod 'SnapKit', '~> 5.0.0'
+  pod 'FSCalendar'
 
 end
