@@ -8,9 +8,11 @@
 import UIKit
 
 class EmailRegisterViewController: UIViewController {
-
+    // MARK: - Properties
+    
     let emailStackView = EmailStackView()
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
@@ -18,17 +20,15 @@ class EmailRegisterViewController: UIViewController {
         updateUI()
     }
     
+    // MARK: - Helper
     func updateUI() {
         view.addSubview(emailStackView)
         
         emailStackView.snp.makeConstraints { (m) in
             m.centerX.centerY.width.equalToSuperview()
-            
         }
         
-        emailStackView.setStackView()
     }
-
 }
 
 // MARK:- 이메일로 시작하기 버튼 눌렀을때 나오는 stackview
@@ -40,7 +40,7 @@ class EmailStackView: UIStackView {
         self.spacing = 0
         self.alignment = .center
         self.distribution = .fill
-        self.isHidden = true
+        setStackView()
     }
     
     required init(coder: NSCoder) {
