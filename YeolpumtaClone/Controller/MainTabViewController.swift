@@ -30,7 +30,11 @@ class MainTabViewController: UITabBarController {
      */
     func setupViewControllers() {
         let insightsViewController = InsightsViewController()
+        
         let homeViewController = HomeViewController()
+        homeViewController.title = "타이머"
+        
+        let homeNavController = templateNavigationController(rootViewContorller: homeViewController)
         let rankingViewController = RankingViewController()
         
         let insightsTabBarIconImage = UIImage(named: Constants.ImageName.insights)
@@ -38,15 +42,34 @@ class MainTabViewController: UITabBarController {
         let rankingTabBarIconImage = UIImage(named: Constants.ImageName.star)
         
         insightsViewController.tabBarItem = UITabBarItem(title: "통계", image: insightsTabBarIconImage, tag: 0)
-        homeViewController.tabBarItem = UITabBarItem(title: "홈", image: homeTabBarIconImage, tag: 1)
+        homeNavController.tabBarItem = UITabBarItem(title: "홈", image: homeTabBarIconImage, tag: 1)
         rankingViewController.tabBarItem = UITabBarItem(title: "랭킹", image: rankingTabBarIconImage, tag: 2)
         
-        setViewControllers([insightsViewController, homeViewController, rankingViewController], animated: false)
+        setViewControllers([insightsViewController, homeNavController, rankingViewController], animated: false)
     }
     
     func setupUI() {
         view.backgroundColor = .systemBackground
         tabBar.tintColor = .darkGray
+    }
+    
+    func templateNavigationController(rootViewContorller: UIViewController) -> UINavigationController {
+        let navController = UINavigationController(rootViewController: rootViewContorller)
+        
+        navController.navigationBar.barTintColor = UIColor.tintColor
+        // 타이틀의 색 조정
+        navController.navigationBar.titleTextAttributes = [
+            .foregroundColor: UIColor.white,
+            .font: UIFont.systemFont(ofSize: 17, weight: .bold)
+        ]
+        
+        // Navigation Bar 아래에 있는 separator를 제거하기 위한 코드
+        navController.navigationBar.shadowImage = UIImage()
+        
+        // Navigation Bar를 불투명하게 설정
+        navController.navigationBar.isTranslucent = false
+        
+        return navController
     }
     
     // 유저 로그인 여부 확인해서 FirstViewController 로그인 화면 보여주기
@@ -58,8 +81,7 @@ class MainTabViewController: UITabBarController {
             present(nav, animated: true)
         } else {
             // 탭바 initial View 두번째꺼로
-            self.selectedIndex = 1
+            selectedIndex = 1
         }
     }
-   
 }
