@@ -31,6 +31,7 @@ class FirstViewController: UIViewController {
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.systemOrange.cgColor
+        button.addTarget(self, action: #selector(didTapRegisterButton), for: .touchUpInside)
         return button
     }()
     
@@ -41,6 +42,7 @@ class FirstViewController: UIViewController {
         button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.systemOrange.cgColor
+        button.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
         return button
     }()
     
@@ -48,10 +50,7 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
-        setUI()
-        
-        self.loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
-        self.registerButton.addTarget(self, action: #selector(didTapRegisterButton), for: .touchUpInside)
+        updateUI()
     }
     
     // MARK: - Helper
@@ -71,7 +70,7 @@ class FirstViewController: UIViewController {
     }
     
     // UI 레이아웃
-    func setUI() {
+    func updateUI() {
         view.addSubview(imageView)
         view.addSubview(textLabel)
         view.addSubview(registerButton)

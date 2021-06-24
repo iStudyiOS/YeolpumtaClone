@@ -19,6 +19,7 @@ class RegisterViewController: UIViewController {
         button.layer.borderColor = UIColor.lightGray.cgColor
         button.setImage(UIImage(systemName: "envelope.fill"), for: .normal)
         button.tintColor = .darkGray
+        button.addTarget(self, action: #selector(didTapEmailButton), for: .touchUpInside)
         return button
     }()
     
@@ -29,9 +30,18 @@ class RegisterViewController: UIViewController {
         self.view.backgroundColor = .white
         
         updateUI()
+        
     }
     
     // MARK: - Helper
+    
+    // emailButton 터치시
+    @objc func didTapEmailButton() {
+        
+        let vc = EmailRegisterViewController()
+        navigationController?.pushViewController(vc, animated: false)
+        
+    }
     
     // UI 레이아웃
     func updateUI() {
@@ -52,8 +62,8 @@ class RegisterViewController: UIViewController {
             m.height.equalTo(buttonheight-20)
         })
         
-        
         // 버튼 모서리 둥글게
         emailButton.layer.cornerRadius = CGFloat(buttonheight/6)
+        
     }
 }

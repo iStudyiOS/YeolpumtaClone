@@ -101,13 +101,13 @@ class LoginViewController: UIViewController {
             line.backgroundColor = UIColor.lightGray
             return line
         }()
-        
+
         let rightline: UIView = {
             let line = UIView()
             line.backgroundColor = UIColor.lightGray
             return line
         }()
-        
+
         let orlabel: UILabel = {
             let label = UILabel()
             label.text = "또는"
