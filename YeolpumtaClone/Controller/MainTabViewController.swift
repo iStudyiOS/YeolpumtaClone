@@ -11,7 +11,7 @@ class MainTabViewController: UITabBarController {
     // MARK: - Lifecycle
     
     // 유저 로그인 여부
-    var userLogged = false
+    var userLogged = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
