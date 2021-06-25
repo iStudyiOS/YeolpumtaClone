@@ -16,6 +16,7 @@ class HomeViewController: UIViewController {
         button.setImage(UIImage(named: Constants.ImageName.plus), for: .normal)
         button.backgroundColor = .tintColor
         button.tintColor = .white
+        button.addTarget(self, action: #selector(addObject), for: .touchUpInside)
         return button
     }()
     
@@ -27,9 +28,15 @@ class HomeViewController: UIViewController {
     
     private let dateLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 17)
+        label.font = UIFont.systemFont(ofSize: 15)
         label.textColor = .white
-        label.text = "2021. 6. 17"
+        
+        // 금일 날짜 표시
+        let now = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy . M . d"
+        
+        label.text = dateFormatter.string(from: now)
         
         return label
     }()
@@ -54,6 +61,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
     }
 
     // MARK: - Helper
@@ -106,11 +114,19 @@ class HomeViewController: UIViewController {
         
         tableView.dataSource = self
     }
+    
+    // MARK: - Actions
+    
+    @objc func addObject() {
+        let controller = AddObjectController()
+        navigationController?.pushViewController(controller, animated: true)
+        controller.navigationController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    }
 }
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 1 + 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
