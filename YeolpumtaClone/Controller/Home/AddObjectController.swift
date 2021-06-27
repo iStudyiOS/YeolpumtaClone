@@ -38,9 +38,9 @@ class AddObjectController: UIViewController {
     private var colorButton: UIButton = {
         let bt = UIButton()
         bt.snp.makeConstraints {
-            $0.width.height.equalTo(36)
+            $0.width.height.equalTo(40)
         }
-        bt.layer.cornerRadius = 36 / 2
+        bt.layer.cornerRadius = 40 / 2
         bt.backgroundColor = .red
         bt.addTarget(self, action: #selector(didTapColorButton), for: .touchUpInside)
 
