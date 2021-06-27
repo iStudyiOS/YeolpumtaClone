@@ -10,17 +10,7 @@ import SnapKit
 
 class AddObjectController: UIViewController {
     // MARK: - Properties
-    
-    // 화면 적용 필요
-    
-    private lazy var backButton: UIButton = {
-        let bt = UIButton()
-        bt.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
-        bt.tintColor = .blue
-        bt.addTarget(self, action: #selector(handleDismissal), for: .touchUpInside)
-        return bt
-    }()
-    
+        
     private let objectLabel: UILabel = {
         let label = UILabel()
         label.text = "측정할 과목 이름"
@@ -45,14 +35,16 @@ class AddObjectController: UIViewController {
         return label
     }()
     
-    private let colorField: UIImageView = {
-        let view = UIImageView()
-        view.backgroundColor = .red
-        view.snp.makeConstraints {
-            $0.width.height.equalTo(32)
+    private var colorButton: UIButton = {
+        let bt = UIButton()
+        bt.snp.makeConstraints {
+            $0.width.height.equalTo(36)
         }
-        view.layer.cornerRadius = 32 / 2
-        return view
+        bt.layer.cornerRadius = 36 / 2
+        bt.backgroundColor = .red
+        bt.addTarget(self, action: #selector(didTapColorButton), for: .touchUpInside)
+
+        return bt
     }()
     
     
@@ -61,12 +53,24 @@ class AddObjectController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         title = "과목 추가하기"
-        navigationItem.hidesBackButton = true
-        
+       
+        configureNavBar()
         configureUI()
     }
     
     // MARK: - Helpers
+    
+    private func configureNavBar() {
+        // 기존 버튼 삭제 ( defualt값을 변경하기 위해 여러 번 시도하였지만, 변경을 못해 제거하고 leftBarButtonItem을 추가합니다 )
+        navigationItem.hidesBackButton = true
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .done, target: self, action: #selector(handleDismissal))
+        navigationItem.leftBarButtonItem?.tintColor = .white
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "추가", style: .done, target: self, action: #selector(handleDismissal))
+        navigationItem.rightBarButtonItem?.tintColor = .white
+
+    }
     
     private func configureUI() {
         
@@ -89,8 +93,8 @@ class AddObjectController: UIViewController {
             $0.leading.equalTo(view).offset(16)
         }
         
-        view.addSubview(colorField)
-        colorField.snp.makeConstraints {
+        view.addSubview(colorButton)
+        colorButton.snp.makeConstraints {
             $0.top.equalTo(colorLabel).offset(28)
             $0.leading.equalTo(view).offset(20)
         }
@@ -98,7 +102,23 @@ class AddObjectController: UIViewController {
     
     // MARK: - Actions
     
-    @objc func handleDismissal() {
+    @objc private func handleDismissal() {
         navigationController?.popViewController(animated: true)
     }
+    
+    @objc private func didTapColorButton() {
+        let colorPickerVC = UIColorPickerViewController()
+        colorPickerVC.delegate = self
+        present(colorPickerVC, animated: true)
+    }
 }
+// MARK: - UIColorPickerViewControllerDelegate
+
+extension AddObjectController: UIColorPickerViewControllerDelegate {
+    // color 선택시 버튼 색상 변경
+    func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
+        let color = viewController.selectedColor
+        colorButton.backgroundColor = color
+    }
+}
+

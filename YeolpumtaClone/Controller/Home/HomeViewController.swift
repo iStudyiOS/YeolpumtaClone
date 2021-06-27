@@ -8,6 +8,7 @@
 import SnapKit
 import UIKit
 
+@available(iOS 14.0, *)
 class HomeViewController: UIViewController {
     // MARK: - Property
 
@@ -117,6 +118,7 @@ class HomeViewController: UIViewController {
     
     // MARK: - Actions
     
+    @available(iOS 14.0, *)
     @objc func addObject() {
         let controller = AddObjectController()
         navigationController?.pushViewController(controller, animated: true)
@@ -124,6 +126,7 @@ class HomeViewController: UIViewController {
     }
 }
 
+@available(iOS 14.0, *)
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1 + 4
