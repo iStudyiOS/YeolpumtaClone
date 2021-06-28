@@ -114,7 +114,6 @@ class CalendarCell: UITableViewCell, FSCalendarDelegate, FSCalendarDataSource {
             $0.top.equalTo(calendar).offset(260 - 2)
             $0.centerX.equalTo(contentView)
         }
-        
     }
     
     private func configureCalendarUI() {
