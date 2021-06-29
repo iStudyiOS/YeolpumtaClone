@@ -1,20 +1,28 @@
 PODS:
+  - Alamofire (5.4.3)
   - FSCalendar (2.8.2)
+  - naveridlogin-sdk-ios (4.1.3)
   - SnapKit (5.0.1)
 
 DEPENDENCIES:
+  - Alamofire (~> 5.4)
   - FSCalendar
+  - naveridlogin-sdk-ios
   - SnapKit (~> 5.0.0)
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - FSCalendar
+    - naveridlogin-sdk-ios
     - SnapKit
 
 SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   FSCalendar: e6a2eb9c571bf0719ed797ef807e08426753c241
+  naveridlogin-sdk-ios: b9d7c20677981177ed994ecb1c8c2b49f223277d
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: 2d2362260ac6dcd58ed18597c367560e8bab4cce
+PODFILE CHECKSUM: be02166107f0c2cee2d8059505c267c38e5d1ccf
 
 COCOAPODS: 1.10.1

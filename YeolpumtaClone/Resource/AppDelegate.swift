@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import NaverThirdPartyLogin
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +15,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let instance = NaverThirdPartyLoginConnection.getSharedInstance()
+        
+        // 네이버 앱으로 인증하는 방식 활성화
+        instance?.isNaverAppOauthEnable = true
+        
+        // safari로 인증하는 방식 활성화
+        instance?.isInAppOauthEnable = true
+        
+        // 인증화면 아이폰 세로모드에서만 적용
+        instance?.isOnlyPortraitSupportedInIphone()
+        
+        instance?.serviceUrlScheme = kServiceAppUrlScheme
+        instance?.consumerKey = kConsumerKey
+        instance?.consumerSecret = kConsumerSecret
+        instance?.appName = kServiceAppName
+        
         return true
     }
 
