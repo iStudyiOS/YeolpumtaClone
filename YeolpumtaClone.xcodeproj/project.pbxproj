@@ -28,6 +28,8 @@
 		6BC6F032267B69E10080A172 /* HomeSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC6F031267B69E10080A172 /* HomeSectionCell.swift */; };
 		6BC6F037267B6E030080A172 /* HomeTimerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC6F036267B6E030080A172 /* HomeTimerCell.swift */; };
 		6BC6F03A267B747F0080A172 /* HomeAddGoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC6F039267B747F0080A172 /* HomeAddGoalCell.swift */; };
+		BD07BFD5268C288E00E83D03 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD07BFD4268C288D00E83D03 /* GoogleService-Info.plist */; };
+		BD07BFD7268C2AA700E83D03 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD07BFD6268C2AA700E83D03 /* DatabaseManager.swift */; };
 		BD6A4526267B1EF9001F4808 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6A4525267B1EF9001F4808 /* FirstViewController.swift */; };
 		BD6A4529267B387E001F4808 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6A4528267B387E001F4808 /* LoginViewController.swift */; };
 		BD6A452C267B389B001F4808 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6A452B267B389B001F4808 /* RegisterViewController.swift */; };
@@ -59,6 +61,8 @@
 		6BC6F031267B69E10080A172 /* HomeSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionCell.swift; sourceTree = "<group>"; };
 		6BC6F036267B6E030080A172 /* HomeTimerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTimerCell.swift; sourceTree = "<group>"; };
 		6BC6F039267B747F0080A172 /* HomeAddGoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAddGoalCell.swift; sourceTree = "<group>"; };
+		BD07BFD4268C288D00E83D03 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BD07BFD6268C2AA700E83D03 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		BD6A4525267B1EF9001F4808 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		BD6A4528267B387E001F4808 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BD6A452B267B389B001F4808 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 		6B3A20B3267606B800F3D04C /* YeolpumtaClone */ = {
 			isa = PBXGroup;
 			children = (
+				BD07BFD4268C288D00E83D03 /* GoogleService-Info.plist */,
 				6BC6F02E267B63010080A172 /* Extension */,
 				6B3A20DA267611E700F3D04C /* Constant */,
 				6B3A20CB2676073C00F3D04C /* Model */,
@@ -139,6 +144,7 @@
 				6B3A20B6267606B800F3D04C /* SceneDelegate.swift */,
 				6B3A20BD267606BA00F3D04C /* Assets.xcassets */,
 				6B3A20BF267606BA00F3D04C /* LaunchScreen.storyboard */,
+				BD07BFD6268C2AA700E83D03 /* DatabaseManager.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -294,6 +300,7 @@
 			files = (
 				6B3A20C1267606BA00F3D04C /* LaunchScreen.storyboard in Resources */,
 				6B3A20BE267606BA00F3D04C /* Assets.xcassets in Resources */,
+				BD07BFD5268C288E00E83D03 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +358,7 @@
 				6BC6F032267B69E10080A172 /* HomeSectionCell.swift in Sources */,
 				6B3A20D32676079000F3D04C /* RankingViewController.swift in Sources */,
 				428C96FB2680CBB3009B8E0D /* CalendarCell.swift in Sources */,
+				BD07BFD7268C2AA700E83D03 /* DatabaseManager.swift in Sources */,
 				6B3A20B5267606B800F3D04C /* AppDelegate.swift in Sources */,
 				6BC6F030267B630A0080A172 /* UIColor+Ext.swift in Sources */,
 				428C96FF2680CBB3009B8E0D /* Statistics.swift in Sources */,

@@ -59,7 +59,7 @@ class RegisterViewController: UIViewController {
         loginInstance?.requestThirdPartyLogin()
     }
     
-    // logoutButton 터치시
+//     logoutButton 터치시
     @objc func didTapLogoutButton() {
         loginInstance?.requestDeleteToken()
     }
@@ -73,6 +73,8 @@ extension RegisterViewController: NaverThirdPartyLoginConnectionDelegate {
     func oauth20ConnectionDidFinishRequestACTokenWithAuthCode() {
         print("Success Login")
         getNaverInfo()
+        self.dismiss(animated: true, completion: nil)
+        UserDefaults.standard.set(true, forKey: "userLogged")
     }
     
     // refresh token
@@ -116,8 +118,15 @@ extension RegisterViewController: NaverThirdPartyLoginConnectionDelegate {
             guard let result = response.value as? [String: Any] else { return }
             guard let object = result["response"] as? [String: Any] else { return }
             guard let name = object["name"] as? String else { return }
-            print(name)
+            guard let email = object["email"] as? String else { return }
+            
+            let user = YeolpumtaUser(name: name, email: email)
+            let loginto = "Naver"
+            
+            DatabaseManager.shared.insertUser(user: user, loginto: loginto)
         })
+        
+        
     }
     
     
