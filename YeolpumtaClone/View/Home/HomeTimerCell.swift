@@ -9,9 +9,12 @@ import UIKit
 
 class HomeTimerCell: UITableViewCell {
     // MARK: - Initializer
+        
+    var objectList = [ObjectForAdd]() 
+    
     static let cellIdentifier = String(describing: HomeTimerCell.self)
     
-    private let playButton: UIButton = {
+    let playButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "play.fill"), for: .normal)
         button.tintColor = .white
@@ -19,7 +22,7 @@ class HomeTimerCell: UITableViewCell {
         return button
     }()
     
-    private let goalLabel: UILabel = {
+    let goalLabel: UILabel = {
         let label = UILabel()
         label.text = "자소서"
         label.font = UIFont.systemFont(ofSize: 17, weight: .bold)

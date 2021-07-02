@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2296F3E462DE79581FEF0FD7 /* Pods_YeolpumtaClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F240E6EDDA8440264E1F9D6E /* Pods_YeolpumtaClone.framework */; };
+		4246D06D268DFC2900676BD2 /* ObjectForAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4246D06C268DFC2900676BD2 /* ObjectForAdd.swift */; };
 		428C96FB2680CBB3009B8E0D /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428C96F62680CBB3009B8E0D /* CalendarCell.swift */; };
 		428C96FC2680CBB3009B8E0D /* StatisticsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428C96F72680CBB3009B8E0D /* StatisticsCell.swift */; };
 		428C96FD2680CBB3009B8E0D /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428C96F82680CBB3009B8E0D /* MenuBar.swift */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		03174D305EDA1C3BA6C26926 /* Pods-YeolpumtaClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YeolpumtaClone.release.xcconfig"; path = "Target Support Files/Pods-YeolpumtaClone/Pods-YeolpumtaClone.release.xcconfig"; sourceTree = "<group>"; };
 		15BB2CD8CEE5BA889310A14D /* Pods-YeolpumtaClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YeolpumtaClone.debug.xcconfig"; path = "Target Support Files/Pods-YeolpumtaClone/Pods-YeolpumtaClone.debug.xcconfig"; sourceTree = "<group>"; };
+		4246D06C268DFC2900676BD2 /* ObjectForAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectForAdd.swift; sourceTree = "<group>"; };
 		428C96F62680CBB3009B8E0D /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		428C96F72680CBB3009B8E0D /* StatisticsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsCell.swift; sourceTree = "<group>"; };
 		428C96F82680CBB3009B8E0D /* MenuBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
@@ -87,6 +89,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		4246D06A268DFC0900676BD2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4246D06C268DFC2900676BD2 /* ObjectForAdd.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		428C96F52680CB3D009B8E0D /* Insights */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,9 +130,9 @@
 		6B3A20B3267606B800F3D04C /* YeolpumtaClone */ = {
 			isa = PBXGroup;
 			children = (
+				4246D06A268DFC0900676BD2 /* Model */,
 				6BC6F02E267B63010080A172 /* Extension */,
 				6B3A20DA267611E700F3D04C /* Constant */,
-				6B3A20CB2676073C00F3D04C /* Model */,
 				6B3A20CA2676073A00F3D04C /* View */,
 				6B3A20C92676073800F3D04C /* Controller */,
 				6B3A20CD2676074800F3D04C /* Service */,
@@ -162,13 +172,6 @@
 				6BC6F038267B6E050080A172 /* Home */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		6B3A20CB2676073C00F3D04C /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		6B3A20CD2676074800F3D04C /* Service */ = {
@@ -356,6 +359,7 @@
 				428C96FF2680CBB3009B8E0D /* Statistics.swift in Sources */,
 				6B3A20B7267606B800F3D04C /* SceneDelegate.swift in Sources */,
 				BD6A4530268184C1001F4808 /* EmailRegisterViewController.swift in Sources */,
+				4246D06D268DFC2900676BD2 /* ObjectForAdd.swift in Sources */,
 				BD6A4526267B1EF9001F4808 /* FirstViewController.swift in Sources */,
 				428C96FD2680CBB3009B8E0D /* MenuBar.swift in Sources */,
 				6B3A20CF2676077900F3D04C /* InsightsViewController.swift in Sources */,
