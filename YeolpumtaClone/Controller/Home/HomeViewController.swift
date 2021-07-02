@@ -57,6 +57,20 @@ class HomeViewController: UIViewController {
         return tableView
     }()
 
+    let menuView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .yellow
+        return view
+    }()
+    
+    let containerView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
+    lazy var slideInMenuPadding: CGFloat = self.view.frame.width * 0.30
+    var isSlideMenuBarPresented = false
+    
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
@@ -66,11 +80,18 @@ class HomeViewController: UIViewController {
     }
 
     // MARK: - Helper
-
+    
     fileprivate func setupUI() {
         setupTotalTimerView()
         setupTableView()
         setupAddButton()
+        setupSlideMenuBarButton()
+    }
+    
+    fileprivate func setupSlideMenuBarButton() {
+        let slideMenuBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3"), style: .done, target: self, action: #selector(slideMenuBarButtonTapped))
+        slideMenuBarButtonItem.tintColor = .white
+        self.navigationItem.setLeftBarButton(slideMenuBarButtonItem, animated: false)
     }
 
     fileprivate func setupAddButton() {
@@ -123,6 +144,53 @@ class HomeViewController: UIViewController {
         let controller = AddObjectController()
         navigationController?.pushViewController(controller, animated: true)
         controller.navigationController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    }
+    
+    // 메뉴 열기
+    @objc func slideMenuBarButtonTapped() {
+        
+        let screenSize = UIScreen.main.bounds.size
+        let menuViewWidth: CGFloat = screenSize.width * 0.85
+        
+        let window = UIApplication.shared.windows.first
+        containerView.backgroundColor = UIColor.black.withAlphaComponent(0.9)
+        containerView.frame = self.view.frame
+        window?.addSubview(containerView)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(slideUpMenuViewTapped))
+        containerView.addGestureRecognizer(tapGesture)
+        
+        menuView.frame = CGRect(x: -menuViewWidth, y: 0, width: menuViewWidth, height: screenSize.height)
+        window?.addSubview(menuView)
+        
+        containerView.alpha = 0
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       usingSpringWithDamping: 1.0,
+                       initialSpringVelocity: 1.0,
+                       options: .curveEaseInOut,
+                       animations: {
+                        self.containerView.alpha = 0.8
+                        self.menuView.frame = CGRect(x: 0, y: 0, width: menuViewWidth, height: screenSize.height)
+                       },
+                       completion: nil)
+    }
+    
+    // 메뉴 닫기
+    @objc func slideUpMenuViewTapped() {
+        let screenSize = UIScreen.main.bounds.size
+        let menuViewWidth: CGFloat = screenSize.width * 0.85
+        
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       usingSpringWithDamping: 1.0,
+                       initialSpringVelocity: 1.0,
+                       options: .curveEaseInOut,
+                       animations: {
+                        self.containerView.alpha = 0
+                        self.menuView.frame = CGRect(x: -menuViewWidth, y: 0, width: menuViewWidth, height: screenSize.height)
+                       },
+                       completion: nil)
     }
 }
 
