@@ -17,11 +17,11 @@ class EmailRegisterViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         
-        updateUI()
+        setStackView()
     }
     
     // MARK: - Helper
-    func updateUI() {
+    func setStackView() {
         view.addSubview(emailStackView)
         
         emailStackView.snp.makeConstraints { (m) in
@@ -40,7 +40,7 @@ class EmailStackView: UIStackView {
         self.spacing = 0
         self.alignment = .center
         self.distribution = .fill
-        setStackView()
+        configureUI()
     }
     
     required init(coder: NSCoder) {
@@ -126,7 +126,7 @@ class EmailStackView: UIStackView {
         return button
     }()
     
-    func setStackView() {
+    func configureUI() {
         self.addArrangedSubview(accountLabel)
         self.addArrangedSubview(emailField)
         self.addArrangedSubview(emailFieldLine)

@@ -8,5 +8,9 @@ target 'YeolpumtaClone' do
   # Pods for YeolpumtaClone
   pod 'SnapKit', '~> 5.0.0'
   pod 'FSCalendar'
-
+  pod 'naveridlogin-sdk-ios'
+  pod 'Alamofire', '~> 5.4'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Database'
+  
 end
