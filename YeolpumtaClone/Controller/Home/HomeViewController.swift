@@ -57,19 +57,14 @@ class HomeViewController: UIViewController {
         return tableView
     }()
 
-    let menuView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .yellow
-        return view
-    }()
+    // 슬라이드 메뉴 뷰
+    let menuView = HomeSlideMenuTableViewController()
     
+    // 슬라이드시 담을 뷰, 뒷배경 흐리게 만들어줌
     let containerView: UIView = {
         let view = UIView()
         return view
     }()
-    
-    lazy var slideInMenuPadding: CGFloat = self.view.frame.width * 0.30
-    var isSlideMenuBarPresented = false
     
     // MARK: - Lifecycle
 
@@ -88,6 +83,7 @@ class HomeViewController: UIViewController {
         setupSlideMenuBarButton()
     }
     
+    // 메뉴바 버튼 셋팅
     fileprivate func setupSlideMenuBarButton() {
         let slideMenuBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3"), style: .done, target: self, action: #selector(slideMenuBarButtonTapped))
         slideMenuBarButtonItem.tintColor = .white
@@ -160,8 +156,8 @@ class HomeViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(slideUpMenuViewTapped))
         containerView.addGestureRecognizer(tapGesture)
         
-        menuView.frame = CGRect(x: -menuViewWidth, y: 0, width: menuViewWidth, height: screenSize.height)
-        window?.addSubview(menuView)
+        menuView.view.frame = CGRect(x: -menuViewWidth, y: 0, width: menuViewWidth, height: screenSize.height)
+        window?.addSubview(menuView.view)
         
         containerView.alpha = 0
         UIView.animate(withDuration: 0.5,
@@ -171,7 +167,7 @@ class HomeViewController: UIViewController {
                        options: .curveEaseInOut,
                        animations: {
                         self.containerView.alpha = 0.8
-                        self.menuView.frame = CGRect(x: 0, y: 0, width: menuViewWidth, height: screenSize.height)
+                        self.menuView.view.frame = CGRect(x: 0, y: 0, width: menuViewWidth, height: screenSize.height)
                        },
                        completion: nil)
     }
@@ -188,7 +184,7 @@ class HomeViewController: UIViewController {
                        options: .curveEaseInOut,
                        animations: {
                         self.containerView.alpha = 0
-                        self.menuView.frame = CGRect(x: -menuViewWidth, y: 0, width: menuViewWidth, height: screenSize.height)
+                        self.menuView.view.frame = CGRect(x: -menuViewWidth, y: 0, width: menuViewWidth, height: screenSize.height)
                        },
                        completion: nil)
     }
@@ -214,6 +210,4 @@ extension HomeViewController: UITableViewDataSource {
             return cell
         }
     }
-    
-    
 }
