@@ -8,7 +8,6 @@
 import Foundation
 import FirebaseDatabase
 
-
 struct YeolpumtaUser {
     let name: String
     let email: String

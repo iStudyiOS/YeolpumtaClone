@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import NaverThirdPartyLogin
 
 class SettingViewController: UIViewController {
 
+    let loginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
+    
     let tableView: UITableView = {
         let tableView = UITableView()
         return tableView
@@ -19,11 +22,13 @@ class SettingViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.frame = view.bounds
+        self.view.addSubview(tableView)
     }
 }
 
+// MARK:- TableView Data, Delegate
 extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
     
     // 셀 개수
@@ -43,9 +48,41 @@ extension SettingViewController: UITableViewDataSource, UITableViewDelegate {
     // 셀 선택시
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if let cellText = tableView.cellForRow(at: indexPath)?.textLabel?.text {
-            print(cellText)
+        didSelectRowAt(index: indexPath.row)
+    }
+}
+
+// MARK:- 각 셀마다 터치시 기능들 ..
+extension SettingViewController {
+    
+    enum Settings: Int {
+        case Logout = 0
+    }
+    
+    func didSelectRowAt(index: Int){
+        let settings = Settings.init(rawValue: index)
+        
+        switch settings {
+        case .Logout:
+            didTapLogout()
+        case .none:
+            print("no index error...")
         }
     }
     
+    // 로그아웃 버튼 누를시..
+    func didTapLogout() {
+        DatabaseManager.shared.userExists(email: "Naver-ckdals4862-naver-com")
+        DatabaseManager.shared.userExists(email: "Kakao-ckdals4862-naver-com")
+
+        loginInstance?.requestDeleteToken()
+
+        print("logout!")
+        UserDefaults.standard.set(false, forKey: "userLogged")
+
+        let vc = FirstViewController()
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        present(nav, animated: true)
+    }
 }

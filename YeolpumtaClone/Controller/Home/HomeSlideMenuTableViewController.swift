@@ -88,11 +88,16 @@ class TableHeader: UITableViewHeaderFooterView {
     }
 }
 
+protocol HomeSlideMenuDelegate {
+    func didTapSettingButton()
+}
+
 // MARK:- UITableViewController
 class HomeSlideMenuTableViewController: UITableViewController {
     
     let menuData = ["열품타 스토어", "공지사항", "허용앱 설정", "도움말", "친구초대"]
     
+    var delegate: HomeSlideMenuDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,14 +108,18 @@ class HomeSlideMenuTableViewController: UITableViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
-        
-//        let tableHeader = TableHeader()
-//        tableHeader.settingButton.addTarget(self, action: #selector(didTapSettingButton), for: .touchUpInside)
+
     }
     
     @objc func didTapSettingButton() {
-        let vc = SettingViewController()
+//        let presentVC = SettingViewController()
+//        let rootVC = HomeViewController()
+//        self.present(vc, animated: true, completion: nil)
+//        self.navigationController?.pushViewController(presentVC, animated: true)
+//        let window = UIApplication.shared.windows.first?.rootViewController
+//        window?.navigationController?.pushViewController(presentVC, animated: true)
         
+        delegate?.didTapSettingButton()
         
     }
     

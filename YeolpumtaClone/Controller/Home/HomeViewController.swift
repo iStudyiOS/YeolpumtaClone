@@ -9,7 +9,7 @@ import SnapKit
 import UIKit
 
 @available(iOS 14.0, *)
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, HomeSlideMenuDelegate {
     // MARK: - Property
 
     private let addButton: UIButton = {
@@ -72,6 +72,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         
+        menuView.delegate = self
     }
 
     // MARK: - Helper
@@ -142,13 +143,26 @@ class HomeViewController: UIViewController {
         controller.navigationController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
+    // 슬라이드 메뉴 셋팅버튼 누를시.. delegate로 구현
+    func didTapSettingButton() {
+        let vc = SettingViewController()
+//        let window = UIApplication.shared.windows.first?.rootViewController
+//        let window = self.view.window?.rootViewController
+//        window?.navigationController?.pushViewController(vc, animated: true)
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+        
+    }
+    
     // 메뉴 열기
     @objc func slideMenuBarButtonTapped() {
         
         let screenSize = UIScreen.main.bounds.size
         let menuViewWidth: CGFloat = screenSize.width * 0.85
         
-        let window = UIApplication.shared.windows.first
+//        let window = UIApplication.shared.windows.first
+        let window = self.view
         containerView.backgroundColor = UIColor.black.withAlphaComponent(0.9)
         containerView.frame = self.view.frame
         window?.addSubview(containerView)
