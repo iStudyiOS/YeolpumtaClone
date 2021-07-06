@@ -74,7 +74,6 @@ extension RegisterViewController: NaverThirdPartyLoginConnectionDelegate {
         print("Success Login")
         getNaverInfo()
         self.dismiss(animated: true, completion: nil)
-        UserDefaults.standard.set(true, forKey: "userLogged")
     }
     
     // refresh token

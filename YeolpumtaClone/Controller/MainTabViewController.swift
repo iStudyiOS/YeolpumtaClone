@@ -34,7 +34,10 @@ class MainTabViewController: UITabBarController {
         homeViewController.title = "타이머"
         
         let homeNavController = templateNavigationController(rootViewContorller: homeViewController)
+        
         let rankingViewController = RankingViewController()
+        rankingViewController.title = "랭킹"
+        let rankingNavController = templateNavigationController(rootViewContorller: rankingViewController)
         
         let insightsTabBarIconImage = UIImage(named: Constants.ImageName.insights)
         let homeTabBarIconImage = UIImage(named: Constants.ImageName.home)
@@ -42,9 +45,9 @@ class MainTabViewController: UITabBarController {
         
         insightsViewController.tabBarItem = UITabBarItem(title: "통계", image: insightsTabBarIconImage, tag: 0)
         homeNavController.tabBarItem = UITabBarItem(title: "홈", image: homeTabBarIconImage, tag: 1)
-        rankingViewController.tabBarItem = UITabBarItem(title: "랭킹", image: rankingTabBarIconImage, tag: 2)
+        rankingNavController.tabBarItem = UITabBarItem(title: "랭킹", image: rankingTabBarIconImage, tag: 2)
         
-        setViewControllers([insightsViewController, homeNavController, rankingViewController], animated: false)
+        setViewControllers([insightsViewController, homeNavController, rankingNavController], animated: false)
     }
     
     func setupUI() {

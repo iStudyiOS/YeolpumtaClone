@@ -74,9 +74,6 @@ extension SettingViewController {
     func didTapLogout() {
         loginInstance?.requestDeleteToken()
 
-//        print("logout!")
-//        UserDefaults.standard.set(false, forKey: "userLogged")
-
         UserInfoHelper.resetLogin()
         
         self.dismiss(animated: false, completion: nil)
