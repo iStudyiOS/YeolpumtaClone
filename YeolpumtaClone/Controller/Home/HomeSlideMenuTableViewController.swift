@@ -12,13 +12,13 @@ class TableHeader: UITableViewHeaderFooterView {
     
     static let identifier = "TableHeader"
     
-    private let nameLabel: UILabel = {
+    let nameLabel: UILabel = {
         let label = UILabel()
         label.text = "테스트임니당"
         return label
     }()
     
-    private let logintoLabel: UILabel = {
+    let loginType: UILabel = {
         let label = UILabel()
         label.text = "naver 테스트"
         label.font = UIFont.systemFont(ofSize: 15)
@@ -46,7 +46,7 @@ class TableHeader: UITableViewHeaderFooterView {
         super.init(reuseIdentifier: reuseIdentifier)
         contentView.backgroundColor = .white
         contentView.addSubview(nameLabel)
-        contentView.addSubview(logintoLabel)
+        contentView.addSubview(loginType)
         contentView.addSubview(settingButton)
         contentView.addSubview(statusMessageLabel)
     }
@@ -59,7 +59,7 @@ class TableHeader: UITableViewHeaderFooterView {
         super.layoutSubviews()
         
         nameLabel.sizeToFit()
-        logintoLabel.sizeToFit()
+        loginType.sizeToFit()
         let height: CGFloat = 50
         
         nameLabel.snp.makeConstraints {
@@ -67,7 +67,7 @@ class TableHeader: UITableViewHeaderFooterView {
             $0.left.equalToSuperview().offset(20)
         }
         
-        logintoLabel.snp.makeConstraints {
+        loginType.snp.makeConstraints {
             $0.top.equalTo(nameLabel.snp.bottom).offset(10)
             $0.left.equalTo(nameLabel.snp.left)
         }
@@ -79,7 +79,7 @@ class TableHeader: UITableViewHeaderFooterView {
         }
         
         statusMessageLabel.snp.makeConstraints {
-            $0.top.equalTo(logintoLabel.snp.bottom).offset(20)
+            $0.top.equalTo(loginType.snp.bottom).offset(20)
             $0.centerX.equalToSuperview()
             $0.width.equalToSuperview().offset(-40)
             $0.height.equalTo(height)
@@ -88,12 +88,16 @@ class TableHeader: UITableViewHeaderFooterView {
     }
 }
 
+// MARK:- SettingButton 누를시 HomeViewController에서 실행되게끔 delegate로 넘겨줌
 protocol HomeSlideMenuDelegate {
     func didTapSettingButton()
 }
 
 // MARK:- UITableViewController
 class HomeSlideMenuTableViewController: UITableViewController {
+    
+    var nickName: String?
+    var loginType: LoginType?
     
     let menuData = ["열품타 스토어", "공지사항", "허용앱 설정", "도움말", "친구초대"]
     
@@ -112,17 +116,8 @@ class HomeSlideMenuTableViewController: UITableViewController {
     }
     
     @objc func didTapSettingButton() {
-//        let presentVC = SettingViewController()
-//        let rootVC = HomeViewController()
-//        self.present(vc, animated: true, completion: nil)
-//        self.navigationController?.pushViewController(presentVC, animated: true)
-//        let window = UIApplication.shared.windows.first?.rootViewController
-//        window?.navigationController?.pushViewController(presentVC, animated: true)
-        
         delegate?.didTapSettingButton()
-        
     }
-    
     
 // MARK: Cell datasource, delegate
     // 셀 개수
@@ -153,6 +148,12 @@ class HomeSlideMenuTableViewController: UITableViewController {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header") as! TableHeader
         
         header.settingButton.addTarget(self, action: #selector(didTapSettingButton), for: .touchUpInside)
+        
+        if let nickName = self.nickName,
+           let loginType = self.loginType?.rawValue {
+            header.nameLabel.text = nickName
+            header.loginType.text = loginType
+        }
         
         return header
     }

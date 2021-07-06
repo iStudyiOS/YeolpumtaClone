@@ -47,7 +47,6 @@ class HomeViewController: UIViewController, HomeSlideMenuDelegate {
         label.font = UIFont.systemFont(ofSize: 36, weight: .bold)
         label.textColor = .white
         label.text = "00:00:00"
-        
         return label
     }()
     
@@ -59,19 +58,15 @@ class HomeViewController: UIViewController, HomeSlideMenuDelegate {
 
     // 슬라이드 메뉴 뷰
     let menuView = HomeSlideMenuTableViewController()
-    
-    // 슬라이드시 담을 뷰, 뒷배경 흐리게 만들어줌
-    let containerView: UIView = {
-        let view = UIView()
-        return view
-    }()
+
+    // 슬라이드메뉴뷰를 감싸는 뷰, 뒷배경 흐리게 만들어줌
+    let containerView = UIView()
     
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        
         menuView.delegate = self
     }
 
@@ -146,17 +141,16 @@ class HomeViewController: UIViewController, HomeSlideMenuDelegate {
     // 슬라이드 메뉴 셋팅버튼 누를시.. delegate로 구현
     func didTapSettingButton() {
         let vc = SettingViewController()
-//        let window = UIApplication.shared.windows.first?.rootViewController
-//        let window = self.view.window?.rootViewController
-//        window?.navigationController?.pushViewController(vc, animated: true)
-        
         self.navigationController?.pushViewController(vc, animated: true)
-        
-        
     }
     
     // 메뉴 열기
     @objc func slideMenuBarButtonTapped() {
+        // 프로퍼티 직접 참조 형태로 슬라이드 메뉴뷰에 데이터 넣어주기
+        let nickname = UserInfoHelper.getNickName()
+        let logintype = UserInfoHelper.getLoginType()
+        menuView.nickName = nickname
+        menuView.loginType = logintype
         
         let screenSize = UIScreen.main.bounds.size
         let menuViewWidth: CGFloat = screenSize.width * 0.85

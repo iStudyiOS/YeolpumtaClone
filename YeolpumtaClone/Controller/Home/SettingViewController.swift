@@ -72,14 +72,15 @@ extension SettingViewController {
     
     // 로그아웃 버튼 누를시..
     func didTapLogout() {
-        DatabaseManager.shared.userExists(email: "Naver-ckdals4862-naver-com")
-        DatabaseManager.shared.userExists(email: "Kakao-ckdals4862-naver-com")
-
         loginInstance?.requestDeleteToken()
 
-        print("logout!")
-        UserDefaults.standard.set(false, forKey: "userLogged")
+//        print("logout!")
+//        UserDefaults.standard.set(false, forKey: "userLogged")
 
+        UserInfoHelper.resetLogin()
+        
+        self.dismiss(animated: false, completion: nil)
+        
         let vc = FirstViewController()
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .fullScreen

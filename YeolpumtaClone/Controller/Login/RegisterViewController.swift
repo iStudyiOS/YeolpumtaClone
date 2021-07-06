@@ -124,12 +124,11 @@ extension RegisterViewController: NaverThirdPartyLoginConnectionDelegate {
             let loginto = "Naver"
             
             DatabaseManager.shared.insertUser(user: user, loginto: loginto)
-        })
-        
-        
+            
+            UserInfoHelper.setNickName(name)
+            UserInfoHelper.setLoginType(.Naver)
+        })   
     }
-    
-    
 }
 
 // MARK:- RegisterStackView
