@@ -97,7 +97,7 @@ DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Database
   - FSCalendar
-  - naveridlogin-sdk-ios (= 4.1.3)
+  - naveridlogin-sdk-ios
   - SnapKit (~> 5.0.0)
 
 SPEC REPOS:
@@ -137,6 +137,6 @@ SPEC CHECKSUMS:
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: d223fbe6c90ba393c1806fa0a62b02946f06f2bb
+PODFILE CHECKSUM: c2babc61c1a544e8a5adac6f36379c2bd8356318
 
 COCOAPODS: 1.10.1
