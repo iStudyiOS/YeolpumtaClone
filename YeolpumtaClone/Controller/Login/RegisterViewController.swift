@@ -6,8 +6,8 @@
 //
 
 import UIKit
-import NaverThirdPartyLogin
-import Alamofire
+//import NaverThirdPartyLogin
+//import Alamofire
 
 // layoutSubview 써보기...
 class RegisterViewController: UIViewController {
@@ -17,7 +17,7 @@ class RegisterViewController: UIViewController {
     
     let registerStackView = RegisterStackView()
     
-    let loginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
+//    let loginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -55,80 +55,80 @@ class RegisterViewController: UIViewController {
     
     // naverButton 터치시
     @objc func didTapNaverButton() {
-        loginInstance?.delegate = self
-        loginInstance?.requestThirdPartyLogin()
+//        loginInstance?.delegate = self
+//        loginInstance?.requestThirdPartyLogin()
     }
     
 //     logoutButton 터치시
     @objc func didTapLogoutButton() {
-        loginInstance?.requestDeleteToken()
+//        loginInstance?.requestDeleteToken()
     }
 }
 
 // MARK: - Naver Login
 
-extension RegisterViewController: NaverThirdPartyLoginConnectionDelegate {
-    
-    // 로그인 성공한 경우 호출
-    func oauth20ConnectionDidFinishRequestACTokenWithAuthCode() {
-        print("Success Login")
-        getNaverInfo()
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    // refresh token
-    func oauth20ConnectionDidFinishRequestACTokenWithRefreshToken() {
-//        loginInstance?.accessToken
-    }
-    
-    // 로그아웃
-    func oauth20ConnectionDidFinishDeleteToken() {
-        print("log out")
-    }
-    
-    // 모든 error
-    func oauth20Connection(_ oauthConnection: NaverThirdPartyLoginConnection!, didFailWithError error: Error!) {
-        print("error = \(error.localizedDescription)")
-    }
-    
-    func getNaverInfo() {
-        guard let isValidAccessToken = loginInstance?.isValidAccessTokenExpireTimeNow() else {
-            return
-        }
-        
-        if !isValidAccessToken {
-            print("no accesstoken...")
-            return
-        }
-        
-        guard let tokenType = loginInstance?.tokenType,
-              let accessToken = loginInstance?.accessToken else {
-            return
-        }
-        
-        let urlStr = "https://openapi.naver.com/v1/nid/me"
-        let url = URL(string: urlStr)!
-        
-        let authorization = "\(tokenType) \(accessToken)"
-        
-        let req = AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: ["Authorization": authorization])
-        
-        req.responseJSON(completionHandler: { response in
-            guard let result = response.value as? [String: Any] else { return }
-            guard let object = result["response"] as? [String: Any] else { return }
-            guard let name = object["name"] as? String else { return }
-            guard let email = object["email"] as? String else { return }
-            
-            let user = YeolpumtaUser(name: name, email: email)
-            let loginto = "Naver"
-            
-            DatabaseManager.shared.insertUser(user: user, loginto: loginto)
-            
-            UserInfoHelper.setNickName(name)
-            UserInfoHelper.setLoginType(.Naver)
-        })   
-    }
-}
+//extension RegisterViewController: NaverThirdPartyLoginConnectionDelegate {
+//
+//    // 로그인 성공한 경우 호출
+//    func oauth20ConnectionDidFinishRequestACTokenWithAuthCode() {
+//        print("Success Login")
+//        getNaverInfo()
+//        self.dismiss(animated: true, completion: nil)
+//    }
+//
+//    // refresh token
+//    func oauth20ConnectionDidFinishRequestACTokenWithRefreshToken() {
+////        loginInstance?.accessToken
+//    }
+//
+//    // 로그아웃
+//    func oauth20ConnectionDidFinishDeleteToken() {
+//        print("log out")
+//    }
+//
+//    // 모든 error
+//    func oauth20Connection(_ oauthConnection: NaverThirdPartyLoginConnection!, didFailWithError error: Error!) {
+//        print("error = \(error.localizedDescription)")
+//    }
+//
+//    func getNaverInfo() {
+//        guard let isValidAccessToken = loginInstance?.isValidAccessTokenExpireTimeNow() else {
+//            return
+//        }
+//
+//        if !isValidAccessToken {
+//            print("no accesstoken...")
+//            return
+//        }
+//
+//        guard let tokenType = loginInstance?.tokenType,
+//              let accessToken = loginInstance?.accessToken else {
+//            return
+//        }
+//
+//        let urlStr = "https://openapi.naver.com/v1/nid/me"
+//        let url = URL(string: urlStr)!
+//
+//        let authorization = "\(tokenType) \(accessToken)"
+//
+//        let req = AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: ["Authorization": authorization])
+//
+//        req.responseJSON(completionHandler: { response in
+//            guard let result = response.value as? [String: Any] else { return }
+//            guard let object = result["response"] as? [String: Any] else { return }
+//            guard let name = object["name"] as? String else { return }
+//            guard let email = object["email"] as? String else { return }
+//
+//            let user = YeolpumtaUser(name: name, email: email)
+//            let loginto = "Naver"
+//
+//            DatabaseManager.shared.insertUser(user: user, loginto: loginto)
+//
+//            UserInfoHelper.setNickName(name)
+//            UserInfoHelper.setLoginType(.Naver)
+//        })
+//    }
+//}
 
 // MARK:- RegisterStackView
 

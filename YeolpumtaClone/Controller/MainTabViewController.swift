@@ -10,7 +10,7 @@ import UIKit
 class MainTabViewController: UITabBarController {
     // MARK: - Lifecycle
         
-    var userLogged = false
+    var userLogged = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +77,7 @@ class MainTabViewController: UITabBarController {
     // 유저 로그인 여부 확인해서 FirstViewController 로그인 화면 보여주기
     func validateAuth() {
         
-        self.userLogged = UserInfoHelper.isLogin()
+//        self.userLogged = UserInfoHelper.isLogin()
         
         if !userLogged {
             let vc = FirstViewController()

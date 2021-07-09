@@ -6,11 +6,11 @@
 //
 
 import UIKit
-import NaverThirdPartyLogin
+//import NaverThirdPartyLogin
 
 class SettingViewController: UIViewController {
 
-    let loginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
+//    let loginInstance = NaverThirdPartyLoginConnection.getSharedInstance()
     
     let tableView: UITableView = {
         let tableView = UITableView()
@@ -72,7 +72,7 @@ extension SettingViewController {
     
     // 로그아웃 버튼 누를시..
     func didTapLogout() {
-        loginInstance?.requestDeleteToken()
+//        loginInstance?.requestDeleteToken()
 
         UserInfoHelper.resetLogin()
         
