@@ -10,7 +10,7 @@ import UIKit
 class MainTabViewController: UITabBarController {
     // MARK: - Lifecycle
         
-    var userLogged = false
+    var userLogged = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +34,10 @@ class MainTabViewController: UITabBarController {
         homeViewController.title = "타이머"
         
         let homeNavController = templateNavigationController(rootViewContorller: homeViewController)
+        
         let rankingViewController = RankingViewController()
+        rankingViewController.title = "랭킹"
+        let rankingNavController = templateNavigationController(rootViewContorller: rankingViewController)
         
         let insightsTabBarIconImage = UIImage(named: Constants.ImageName.insights)
         let homeTabBarIconImage = UIImage(named: Constants.ImageName.home)
@@ -42,9 +45,9 @@ class MainTabViewController: UITabBarController {
         
         insightsViewController.tabBarItem = UITabBarItem(title: "통계", image: insightsTabBarIconImage, tag: 0)
         homeNavController.tabBarItem = UITabBarItem(title: "홈", image: homeTabBarIconImage, tag: 1)
-        rankingViewController.tabBarItem = UITabBarItem(title: "랭킹", image: rankingTabBarIconImage, tag: 2)
+        rankingNavController.tabBarItem = UITabBarItem(title: "랭킹", image: rankingTabBarIconImage, tag: 2)
         
-        setViewControllers([insightsViewController, homeNavController, rankingViewController], animated: false)
+        setViewControllers([insightsViewController, homeNavController, rankingNavController], animated: false)
     }
     
     func setupUI() {
@@ -74,7 +77,7 @@ class MainTabViewController: UITabBarController {
     // 유저 로그인 여부 확인해서 FirstViewController 로그인 화면 보여주기
     func validateAuth() {
         
-        self.userLogged = UserDefaults.standard.bool(forKey: "userLogged")
+//        self.userLogged = UserInfoHelper.isLogin()
         
         if !userLogged {
             let vc = FirstViewController()

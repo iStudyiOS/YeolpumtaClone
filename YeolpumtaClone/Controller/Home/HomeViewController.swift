@@ -9,7 +9,7 @@ import SnapKit
 import UIKit
 
 @available(iOS 14.0, *)
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, HomeSlideMenuDelegate {
     // MARK: - Property
 
     private let addButton: UIButton = {
@@ -47,7 +47,6 @@ class HomeViewController: UIViewController {
         label.font = UIFont.systemFont(ofSize: 36, weight: .bold)
         label.textColor = .white
         label.text = "00:00:00"
-        
         return label
     }()
     
@@ -57,20 +56,34 @@ class HomeViewController: UIViewController {
         return tableView
     }()
 
+    // 슬라이드 메뉴 뷰
+    let menuView = HomeSlideMenuTableViewController()
+
+    // 슬라이드메뉴뷰를 감싸는 뷰, 뒷배경 흐리게 만들어줌
+    let containerView = UIView()
+    
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        
+        menuView.delegate = self
     }
 
     // MARK: - Helper
-
+    
     fileprivate func setupUI() {
         setupTotalTimerView()
         setupTableView()
         setupAddButton()
+        setupSlideMenuBarButton()
+    }
+    
+    // 메뉴바 버튼 셋팅
+    fileprivate func setupSlideMenuBarButton() {
+        let slideMenuBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3"), style: .done, target: self, action: #selector(slideMenuBarButtonTapped))
+        slideMenuBarButtonItem.tintColor = .white
+        self.navigationItem.setLeftBarButton(slideMenuBarButtonItem, animated: false)
     }
 
     fileprivate func setupAddButton() {
@@ -124,6 +137,65 @@ class HomeViewController: UIViewController {
         navigationController?.pushViewController(controller, animated: true)
         controller.navigationController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
+    
+    // 슬라이드 메뉴 셋팅버튼 누를시.. delegate로 구현
+    func didTapSettingButton() {
+        let vc = SettingViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    // 메뉴 열기
+    @objc func slideMenuBarButtonTapped() {
+        // 프로퍼티 직접 참조 형태로 슬라이드 메뉴뷰에 데이터 넣어주기
+        let nickname = UserInfoHelper.getNickName()
+        let logintype = UserInfoHelper.getLoginType()
+        menuView.nickName = nickname
+        menuView.loginType = logintype
+        
+        let screenSize = UIScreen.main.bounds.size
+        let menuViewWidth: CGFloat = screenSize.width * 0.85
+        
+//        let window = UIApplication.shared.windows.first
+        let window = self.view
+        containerView.backgroundColor = UIColor.black.withAlphaComponent(0.9)
+        containerView.frame = self.view.frame
+        window?.addSubview(containerView)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(slideUpMenuViewTapped))
+        containerView.addGestureRecognizer(tapGesture)
+        
+        menuView.view.frame = CGRect(x: -menuViewWidth, y: 0, width: menuViewWidth, height: screenSize.height)
+        window?.addSubview(menuView.view)
+        
+        containerView.alpha = 0
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       usingSpringWithDamping: 1.0,
+                       initialSpringVelocity: 1.0,
+                       options: .curveEaseInOut,
+                       animations: {
+                        self.containerView.alpha = 0.8
+                        self.menuView.view.frame = CGRect(x: 0, y: 0, width: menuViewWidth, height: screenSize.height)
+                       },
+                       completion: nil)
+    }
+    
+    // 메뉴 닫기
+    @objc func slideUpMenuViewTapped() {
+        let screenSize = UIScreen.main.bounds.size
+        let menuViewWidth: CGFloat = screenSize.width * 0.85
+        
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       usingSpringWithDamping: 1.0,
+                       initialSpringVelocity: 1.0,
+                       options: .curveEaseInOut,
+                       animations: {
+                        self.containerView.alpha = 0
+                        self.menuView.view.frame = CGRect(x: -menuViewWidth, y: 0, width: menuViewWidth, height: screenSize.height)
+                       },
+                       completion: nil)
+    }
 }
 
 @available(iOS 14.0, *)
@@ -146,6 +218,4 @@ extension HomeViewController: UITableViewDataSource {
             return cell
         }
     }
-    
-    
 }
