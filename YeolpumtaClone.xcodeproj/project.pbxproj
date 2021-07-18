@@ -37,6 +37,8 @@
 		BD6A4529267B387E001F4808 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6A4528267B387E001F4808 /* LoginViewController.swift */; };
 		BD6A452C267B389B001F4808 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6A452B267B389B001F4808 /* RegisterViewController.swift */; };
 		BD6A4530268184C1001F4808 /* EmailRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6A452F268184C1001F4808 /* EmailRegisterViewController.swift */; };
+		BD8A25DC26A449C600B45A38 /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8A25DB26A449C600B45A38 /* DatePickerCell.swift */; };
+		BD8EC3CA26A426260006E99A /* RankingMenuBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8EC3C926A426260006E99A /* RankingMenuBarCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +75,8 @@
 		BD6A4528267B387E001F4808 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BD6A452B267B389B001F4808 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		BD6A452F268184C1001F4808 /* EmailRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailRegisterViewController.swift; sourceTree = "<group>"; };
+		BD8A25DB26A449C600B45A38 /* DatePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
+		BD8EC3C926A426260006E99A /* RankingMenuBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingMenuBarCell.swift; sourceTree = "<group>"; };
 		F240E6EDDA8440264E1F9D6E /* Pods_YeolpumtaClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YeolpumtaClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -158,11 +162,11 @@
 		6B3A20C92676073800F3D04C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				BD8A25DA26A42BA600B45A38 /* Raking */,
 				6BC6F033267B6B970080A172 /* Home */,
 				BD6A4524267B1E05001F4808 /* Login */,
 				6B3A20D4267607A900F3D04C /* MainTabViewController.swift */,
 				6B3A20CE2676077900F3D04C /* InsightsViewController.swift */,
-				6B3A20D22676079000F3D04C /* RankingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -170,6 +174,7 @@
 		6B3A20CA2676073A00F3D04C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BD8EC3C826A425A80006E99A /* Ranking */,
 				428C96F52680CB3D009B8E0D /* Insights */,
 				6BC6F038267B6E050080A172 /* Home */,
 			);
@@ -238,6 +243,23 @@
 				BD1F261026933747000CC7CD /* UserInfoHelper.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		BD8A25DA26A42BA600B45A38 /* Raking */ = {
+			isa = PBXGroup;
+			children = (
+				6B3A20D22676079000F3D04C /* RankingViewController.swift */,
+			);
+			path = Raking;
+			sourceTree = "<group>";
+		};
+		BD8EC3C826A425A80006E99A /* Ranking */ = {
+			isa = PBXGroup;
+			children = (
+				BD8EC3C926A426260006E99A /* RankingMenuBarCell.swift */,
+				BD8A25DB26A449C600B45A38 /* DatePickerCell.swift */,
+			);
+			path = Ranking;
 			sourceTree = "<group>";
 		};
 		E280C946E6342DDEB592DFA6 /* Frameworks */ = {
@@ -370,6 +392,7 @@
 				428C96FB2680CBB3009B8E0D /* CalendarCell.swift in Sources */,
 				BD07BFD7268C2AA700E83D03 /* DatabaseManager.swift in Sources */,
 				6B3A20B5267606B800F3D04C /* AppDelegate.swift in Sources */,
+				BD8EC3CA26A426260006E99A /* RankingMenuBarCell.swift in Sources */,
 				6BC6F030267B630A0080A172 /* UIColor+Ext.swift in Sources */,
 				428C96FF2680CBB3009B8E0D /* Statistics.swift in Sources */,
 				6B3A20B7267606B800F3D04C /* SceneDelegate.swift in Sources */,
@@ -388,6 +411,7 @@
 				428C97012680CBBF009B8E0D /* Utilities.swift in Sources */,
 				BD1F260D26902FF6000CC7CD /* HomeSlideMenuTableViewController.swift in Sources */,
 				6B3A20DC267611FA00F3D04C /* Constants.swift in Sources */,
+				BD8A25DC26A449C600B45A38 /* DatePickerCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

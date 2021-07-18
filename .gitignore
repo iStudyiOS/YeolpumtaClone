@@ -8,6 +8,7 @@
 #           - Also handy if you have a large number of dependant pods
 #           - AS PER https://guides.cocoapods.org/using/using-cocoapods.html NEVER IGNORE THE LOCK FILE
 
+# 네이버 로그인 팟파일들 중 .h파일 수정함. pod install시 새로 재설치 되어서 그냥 폴더 전체를 올려버림
 Pods/*
 !Pods/naveridlogin-sdk-ios/
 
