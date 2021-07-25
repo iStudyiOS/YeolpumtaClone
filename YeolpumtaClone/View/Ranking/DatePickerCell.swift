@@ -12,6 +12,9 @@ class DatePickerCell: UITableViewCell {
     
     static let identifier = "DatePickerCell"
     
+    var leftButtonFunc: (() -> ())?
+    var rightButtonFunc: (() -> ())?
+    
     let dateLabel: UILabel = {
         let label = UILabel()
         label.text = "몇월 몇일?"
@@ -44,6 +47,7 @@ class DatePickerCell: UITableViewCell {
         contentView.backgroundColor = .systemGray6
         
         configureUI()
+        setButton()
     }
     
     required init?(coder: NSCoder) {
@@ -79,5 +83,18 @@ class DatePickerCell: UITableViewCell {
             $0.width.height.equalTo(buttonsize)
             $0.right.equalToSuperview().offset(-20)
         }
+    }
+    
+    func setButton() {
+        self.leftButton.addTarget(self, action: #selector(didTapLeftButton), for: .touchUpInside)
+        self.rightButton.addTarget(self, action: #selector(didTapRightButton), for: .touchUpInside)
+    }
+    
+    @objc func didTapLeftButton() {
+        leftButtonFunc?()
+    }
+
+    @objc func didTapRightButton() {
+        rightButtonFunc?()
     }
 }

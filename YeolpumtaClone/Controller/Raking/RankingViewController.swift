@@ -17,9 +17,12 @@ class RankingViewController: UIViewController {
         
         table.register(RankingMenuBarCell.self, forCellReuseIdentifier: RankingMenuBarCell.identifier)
         table.register(DatePickerCell.self, forCellReuseIdentifier: DatePickerCell.identifier)
+        table.register(TopThreeRankingCell.self, forCellReuseIdentifier: TopThreeRankingCell.identifier)
+        table.register(DetailRankingCell.self, forCellReuseIdentifier: DetailRankingCell.identifier)
         
         table.separatorStyle = .none
         table.backgroundColor = .white
+        
         
         return table
     }()
@@ -58,22 +61,37 @@ extension RankingViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: RankingMenuBarCell.identifier, for: indexPath) as! RankingMenuBarCell
+            
+            
+            
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: DatePickerCell.identifier, for: indexPath) as! DatePickerCell
+            
+            cell.leftButtonFunc = { [weak self] in
+                print("left")
+            }
+            
+            cell.rightButtonFunc = { [weak self] in
+                print("right")
+            }
+            
             return cell
         case 2:
             let cell = UITableViewCell()
             cell.textLabel?.text = "일간 Top3"
+            cell.selectionStyle = .none
             return cell
         case 3:
-            let cell = tableView.dequeueReusableCell(withIdentifier: RankingMenuBarCell.identifier, for: indexPath) as! RankingMenuBarCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: TopThreeRankingCell.identifier, for: indexPath) as! TopThreeRankingCell
             return cell
         case 4:
-            let cell = tableView.dequeueReusableCell(withIdentifier: RankingMenuBarCell.identifier, for: indexPath) as! RankingMenuBarCell
+            let cell = UITableViewCell()
+            cell.textLabel?.numberOfLines = 2
+            cell.textLabel?.text = "공부중 오늘전체 \n 내 등수 상위"
             return cell
         default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: RankingMenuBarCell.identifier, for: indexPath) as! RankingMenuBarCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: DetailRankingCell.identifier, for: indexPath) as! DetailRankingCell
             return cell
         }
     }
@@ -87,7 +105,7 @@ extension RankingViewController: UITableViewDelegate, UITableViewDataSource {
         case 2:
             return 40
         case 3:
-            return 200 + 2
+            return 200 + 3
         case 4:
             return 65
         default:
