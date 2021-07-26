@@ -11,6 +11,8 @@ import SnapKit
 class AddObjectController: UIViewController {
     // MARK: - Properties
         
+    let sql = SQLiteDBManager.shared
+    
     private let objectLabel: UILabel = {
         let label = UILabel()
         label.text = "측정할 과목 이름"
@@ -67,9 +69,16 @@ class AddObjectController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .done, target: self, action: #selector(handleDismissal))
         navigationItem.leftBarButtonItem?.tintColor = .white
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "추가", style: .done, target: self, action: #selector(handleDismissal))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "추가", style: .done, target: self, action: #selector(makeTable))
         navigationItem.rightBarButtonItem?.tintColor = .white
 
+    }
+    
+    @objc func makeTable() {
+        
+        sql.insertSQLiteTable(name: "hi")
+        sql.readSQLiteTable()
+        
     }
     
     private func configureUI() {

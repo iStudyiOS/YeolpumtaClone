@@ -32,6 +32,8 @@
 		BD07BFD7268C2AA700E83D03 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD07BFD6268C2AA700E83D03 /* DatabaseManager.swift */; };
 		BD1D865D26AD449100F7E97C /* TopThreeRankingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1D865C26AD449100F7E97C /* TopThreeRankingCell.swift */; };
 		BD1D865F26AD464100F7E97C /* DetailRankingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1D865E26AD464100F7E97C /* DetailRankingCell.swift */; };
+		BD1D866126AD566F00F7E97C /* TimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1D866026AD566F00F7E97C /* TimerController.swift */; };
+		BD1D866326AD691900F7E97C /* SQLiteDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1D866226AD691900F7E97C /* SQLiteDBManager.swift */; };
 		BD1F260D26902FF6000CC7CD /* HomeSlideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1F260C26902FF6000CC7CD /* HomeSlideMenuTableViewController.swift */; };
 		BD1F260F2691796D000CC7CD /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1F260E2691796D000CC7CD /* SettingViewController.swift */; };
 		BD1F261126933747000CC7CD /* UserInfoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1F261026933747000CC7CD /* UserInfoHelper.swift */; };
@@ -72,6 +74,8 @@
 		BD07BFD6268C2AA700E83D03 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		BD1D865C26AD449100F7E97C /* TopThreeRankingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopThreeRankingCell.swift; sourceTree = "<group>"; };
 		BD1D865E26AD464100F7E97C /* DetailRankingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRankingCell.swift; sourceTree = "<group>"; };
+		BD1D866026AD566F00F7E97C /* TimerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerController.swift; sourceTree = "<group>"; };
+		BD1D866226AD691900F7E97C /* SQLiteDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteDBManager.swift; sourceTree = "<group>"; };
 		BD1F260C26902FF6000CC7CD /* HomeSlideMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSlideMenuTableViewController.swift; sourceTree = "<group>"; };
 		BD1F260E2691796D000CC7CD /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		BD1F261026933747000CC7CD /* UserInfoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoHelper.swift; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 				6B3A20BD267606BA00F3D04C /* Assets.xcassets */,
 				6B3A20BF267606BA00F3D04C /* LaunchScreen.storyboard */,
 				BD07BFD6268C2AA700E83D03 /* DatabaseManager.swift */,
+				BD1D866226AD691900F7E97C /* SQLiteDBManager.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -223,6 +228,7 @@
 				42B1F6A22685C7A100CDE321 /* AddObjectController.swift */,
 				BD1F260C26902FF6000CC7CD /* HomeSlideMenuTableViewController.swift */,
 				BD1F260E2691796D000CC7CD /* SettingViewController.swift */,
+				BD1D866026AD566F00F7E97C /* TimerController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -414,9 +420,11 @@
 				BD1D865F26AD464100F7E97C /* DetailRankingCell.swift in Sources */,
 				6BC6F03A267B747F0080A172 /* HomeAddGoalCell.swift in Sources */,
 				42B1F6A32685C7A100CDE321 /* AddObjectController.swift in Sources */,
+				BD1D866326AD691900F7E97C /* SQLiteDBManager.swift in Sources */,
 				6BC6F037267B6E030080A172 /* HomeTimerCell.swift in Sources */,
 				428C97012680CBBF009B8E0D /* Utilities.swift in Sources */,
 				BD1F260D26902FF6000CC7CD /* HomeSlideMenuTableViewController.swift in Sources */,
+				BD1D866126AD566F00F7E97C /* TimerController.swift in Sources */,
 				6B3A20DC267611FA00F3D04C /* Constants.swift in Sources */,
 				BD8A25DC26A449C600B45A38 /* DatePickerCell.swift in Sources */,
 				BD1D865D26AD449100F7E97C /* TopThreeRankingCell.swift in Sources */,
