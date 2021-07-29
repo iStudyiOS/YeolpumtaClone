@@ -74,11 +74,34 @@ class AddObjectController: UIViewController {
 
     }
     
+    // 추가하기 버튼 누를시..
     @objc func makeTable() {
         
-        sql.insertSQLiteTable(name: "hi")
-        sql.readSQLiteTable()
+        guard let name = self.textField.text,
+              !name.isEmpty else {
+            alertFillTextField()
+            return
+        }
         
+        guard let color = self.colorButton.backgroundColor else {
+            print("no backgroundcolor??")
+            return
+        }
+        
+        guard let colorToData = UIColor.encode(color)() else {
+            print("colorToData error...")
+            return
+        }
+        
+        let data = ObjData(name: name, color: colorToData)
+        sql.insertSQLiteTable(data: data)
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func alertFillTextField() {
+        let alert = UIAlertController(title: "경고", message: "빈칸을 모두 채워주세요!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "돌아가기", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
     private func configureUI() {

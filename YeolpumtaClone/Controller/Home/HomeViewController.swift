@@ -12,6 +12,10 @@ import UIKit
 class HomeViewController: UIViewController, HomeSlideMenuDelegate {
     // MARK: - Property
 
+    var objData: [ObjData]?
+    
+    let sql = SQLiteDBManager.shared
+    
     private let addButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: Constants.ImageName.plus), for: .normal)
@@ -68,6 +72,23 @@ class HomeViewController: UIViewController, HomeSlideMenuDelegate {
         super.viewDidLoad()
         setupUI()
         menuView.delegate = self
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let data = sql.readSQLiteTable() {
+            self.objData = data
+        }
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+        
+        print(self.objData)
+        
     }
 
     // MARK: - Helper
@@ -127,6 +148,7 @@ class HomeViewController: UIViewController, HomeSlideMenuDelegate {
         tableView.register(HomeTimerCell.self, forCellReuseIdentifier: HomeTimerCell.cellIdentifier)
         
         tableView.dataSource = self
+        tableView.delegate = self
     }
     
     // MARK: - Actions
@@ -201,7 +223,13 @@ class HomeViewController: UIViewController, HomeSlideMenuDelegate {
 @available(iOS 14.0, *)
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if let data = self.objData {
+            return 1 + data.count
+        }
+        
+        else {
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -215,6 +243,18 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeTimerCell.cellIdentifier, for: indexPath) as? HomeTimerCell else {
                 fatalError("tableView에서 HomeTimerCell을 dequeue하던 과정에서 에러가 발생하였습니다")
             }
+            
+            guard let objdata = self.objData else {
+                return cell
+            }
+            
+            let name = objdata[indexPath.row-1].name
+            let color = objdata[indexPath.row-1].color
+            let uicolor = UIColor.color(data: color) ?? UIColor.purple
+            
+            cell.goalLabel.text = name
+            cell.playButton.backgroundColor = uicolor
+            
             return cell
         }
     }
@@ -223,6 +263,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         if indexPath.row == 0 {
             
         } else {
+            print("TimerController")
             let vc = TimerController()
             vc.modalPresentationStyle = .fullScreen
             present(vc, animated: true)
